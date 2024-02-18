@@ -1,0 +1,127 @@
+ .Login-root{
+    background-image: url("../src/bgimg.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+        }
+ }
+
+ .login-container {
+     background-color: rgba(220, 220, 220, 0.118);
+ }
+
+.Root {
+    background-image: url("../src/bgimg.jpeg");
+    background-repeat: no-repeat;
+    background-size:cover ;
+    background-position:bottom;
+    color: white;
+    input:focus,
+        textarea:focus,
+        select:focus {
+        outline: none;
+    }
+}
+.Container{
+    background-color: rgba(220, 220, 220, 0.118);
+}
+.btn{
+    background-color: rgba(255, 255, 255, 0.148);
+    padding: 0.5rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    width: 7rem;
+    
+}
+
+/* Root page design */
+
+.search{
+    display: flex;
+    justify-content: space-between;
+    height: 2rem;
+    background-color: rgba(245, 245, 245, 0.289);
+}
+
+.search-bar{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    color: black;
+    margin: 0px;
+    background-color: transparent;
+}
+
+.footer{
+    height: 100px;
+    bottom: 0px;
+    position: fixed;
+    width: 100%;
+}
+
+.rootPage-container{
+    background-image: url('../src/root-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.root-container-search{
+    background-color: rgba(0, 0, 0, 0.552);
+    color: azure;
+}
+.root-container-categories{
+    background-color: rgba(0, 0, 0, 0.552);
+    color: azure;
+    border-top: 1px solid rgba(255, 255, 255, 0.192);
+    height: 2rem;
+    font-size: 0.75rem;
+    
+}
+.root-container-categories li{
+    width: 100%;
+    padding: 0px;
+    text-align: center;
+    line-height: 2rem;
+}
+
+.root-container-categories ul :hover{
+    /* background-color: rgba(245, 245, 245, 0.289);
+    cursor: pointer;
+    margin: 0px;
+    border-radius: 5px; */
+    font-size: 0.8rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.192);
+    border-left: 1px solid rgba(255, 255, 255, 0.192);
+    cursor: pointer;
+}
+
+.footer{
+    background-color: rgba(0, 0, 0, 0.893);
+    color: whitesmoke;
+}
+
+.logo{
+    font-size: 2rem;
+    height: 2rem;
+    padding-left: 2rem;
+}
+
+.user{
+    min-width: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    font-size:10px ;
+}
+
+.user-logo{
+    background-color:rgba(255, 255, 255, 0.192);
+    height: 1.5rem;
+    margin: 0px;
+    width: 2rem;
+    
+}
