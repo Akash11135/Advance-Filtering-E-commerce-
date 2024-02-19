@@ -10,7 +10,6 @@ export const UserContextProvider = ({ children }) => {
     if (!user) {
       axios.get("http://localhost:3000/profile").then((response) => {
         setUser(response);
-        console.log("response-->", response);
       });
     }
   }, []);

@@ -8,6 +8,7 @@ import cors from 'cors'
 import env from "dotenv"
 import profile from './api/auth/profile.js'
 import cookieParser from 'cookie-parser'
+import Products from './modals/products.js'
 env.config()
 
 const app = express()
@@ -43,4 +44,13 @@ app.use('/' , register );
 app.use('/' , login);
 app.use('/' , profile);
 app.use('/' , logout)
+
+app.get('/products' , async(req,res)=>{
+   try{
+        const data = await Products.find()
+        res.status(200).send({data})
+   }catch(err){
+        res.status(200).send({"msg":"data not found"})
+   }
+})
 

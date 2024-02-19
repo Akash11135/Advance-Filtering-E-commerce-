@@ -56,18 +56,30 @@
     background-color: transparent;
 }
 
-.footer{
+.root-container-nav{
+    top: 0px;
+    /* position: sticky; */
+    width: 100%;
+}
+
+.root-container-footer{
     height: 100px;
     bottom: 0px;
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
+    background-color: rgba(0, 0, 0, 0.893);
+    color: whitesmoke;
 }
 
 .rootPage-container{
     background-image: url('../src/root-bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
+
 
 .root-container-search{
     background-color: rgba(0, 0, 0, 0.552);
@@ -99,10 +111,6 @@
     cursor: pointer;
 }
 
-.footer{
-    background-color: rgba(0, 0, 0, 0.893);
-    color: whitesmoke;
-}
 
 .logo{
     font-size: 2rem;
@@ -124,4 +132,14 @@
     margin: 0px;
     width: 2rem;
     
+}
+
+
+.main-products-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-evenly;
+    margin-top: 3rem;
 }

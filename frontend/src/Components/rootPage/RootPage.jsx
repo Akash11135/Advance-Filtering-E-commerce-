@@ -9,9 +9,13 @@ const RootPage = () => {
   const { user } = useContext(UserContext);
   return (
     <div className="rootPage-container min-h-screen">
-      <Navigation user={user} />
-      <div className="root-container ">
+      <div className="root-container-nav ">
+        <Navigation user={user} />
+      </div>
+      <div className="root-container-main  m-3">
         <Main />
+      </div>
+      <div className="root-container-footer">
         <Footer />
       </div>
     </div>

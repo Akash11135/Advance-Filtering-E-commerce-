@@ -11,7 +11,6 @@ import { AiOutlineLogout } from "react-icons/ai";
 import axios from "axios";
 
 const Navigation = ({ user }) => {
-  console.log("nav user--->", user);
   const [redirect, setRedirect] = useState(false);
   const logoutHandle = async (req, res) => {
     const response = await axios.get("http://localhost:3000/logout");
