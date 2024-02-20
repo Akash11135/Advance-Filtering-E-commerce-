@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import "../../App.css";
 import { SiWebmoney } from "react-icons/si";
 import { CiLocationOn } from "react-icons/ci";
@@ -11,16 +11,27 @@ import { AiOutlineLogout } from "react-icons/ai";
 import axios from "axios";
 
 const Navigation = ({ user }) => {
-  const [redirect, setRedirect] = useState(false);
-  const logoutHandle = async (req, res) => {
-    const response = await axios.get("http://localhost:3000/logout");
-    console.log(response);
-    setRedirect(true);
-  };
+  const [input, setInput] = useState("");
+  const [responseItems, setResponseItems] = useState(null);
 
-  // if (setRedirect) {
-  //   return <Navigate to={"/login"} />;
-  // }
+  let results;
+  const fetchData = async (searchItm) => {
+    const response = await axios.get("http://localhost:3000/products");
+    setResponseItems(response);
+    if (searchItm.length > 3) {
+      if (response.data && response.data.data) {
+        results = response.data.data.filter((user) => {
+          return user && user.title.toLowerCase().includes(searchItm);
+        });
+      }
+    }
+  };
+  console.log(results);
+
+  const handleFetch = (searchItm) => {
+    setInput(searchItm);
+    fetchData(searchItm);
+  };
 
   return (
     <nav className="  flex flex-col ">
@@ -28,7 +39,8 @@ const Navigation = ({ user }) => {
         <div className="logo ">
           <SiWebmoney className="cursor-pointer" />
         </div>
-        <div className="location">
+        <div className="location inline-flex gap-2 items-center ">
+          location
           <CiLocationOn className="cursor-pointer" />
         </div>
         <div className="search gap-5 border border-gray-500  rounded-xl w-1/2   ">
@@ -36,6 +48,8 @@ const Navigation = ({ user }) => {
             type="text"
             placeholder="search"
             className=" search-bar rounded-xl p-2"
+            value={input}
+            onChange={(e) => handleFetch(e.target.value)}
           />
           <div className="flex gap-2 items-center justify-end bg-gray-600 p-0 rounded-xl">
             <IoIosClose className="h-full  cursor-pointer text-2xl" />
@@ -72,12 +86,10 @@ const Navigation = ({ user }) => {
 
       <div className="root-container-categories">
         <ul className="flex gap-2  justify-evenly">
-          <li>CATG1</li>
-          <li>CATG2</li>
-          <li>CATG3</li>
-          <li>CATG4</li>
-          <li>CATG4</li>
-          <li>CATG4</li>
+          <li>Men's Clothing</li>
+          <li>Women's Clothing</li>
+          <li>Jwelery</li>
+          <li>Electronics</li>
         </ul>
       </div>
     </nav>

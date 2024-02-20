@@ -9,9 +9,12 @@ const Main = () => {
       setProducts(response.data);
     });
   }, []);
-  console.log("prod-->", products);
+
   return (
     <main className="main-container">
+      <div className=" font-bold text-2x  l pt-3 pl-7">
+        Latest trends and fashion...
+      </div>
       <div className="main-products-container">
         <Products products={products} />
         {/* <Card /> */}

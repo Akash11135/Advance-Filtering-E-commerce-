@@ -1,14 +1,19 @@
 .card{
     height: 25rem;
     width: 15rem;
-    background-color: rgba(245, 245, 245, 0.496);
+    background-color: whitesmoke;
     gap: 1rem;
-    border: 2px solid gray;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     border-radius: 4px;
     overflow: hidden;
+}
+
+.card:hover{
+    cursor: pointer;
+    box-shadow: 5px 5px;
 }
 
 .image-container{
