@@ -10,28 +10,44 @@ import { Link, Navigate } from "react-router-dom";
 import { AiOutlineLogout } from "react-icons/ai";
 import axios from "axios";
 
-const Navigation = ({ user }) => {
+const Navigation = ({ user, setSelectedProd }) => {
   const [input, setInput] = useState("");
-  const [responseItems, setResponseItems] = useState(null);
+  const [redirect, setRedirect] = useState(false);
 
-  let results;
   const fetchData = async (searchItm) => {
     const response = await axios.get("http://localhost:3000/products");
-    setResponseItems(response);
     if (searchItm.length > 3) {
       if (response.data && response.data.data) {
-        results = response.data.data.filter((user) => {
-          return user && user.title.toLowerCase().includes(searchItm);
-        });
+        setSelectedProd(
+          response.data.data.filter((user) => {
+            return user && user.title.toLowerCase().includes(searchItm);
+          })
+        );
       }
+    } else {
+      setSelectedProd(response.data.data);
     }
   };
-  console.log(results);
 
   const handleFetch = (searchItm) => {
     setInput(searchItm);
     fetchData(searchItm);
   };
+
+  const logoutHandler = async () => {
+    const response = await axios.get("http://localhost:3000/logout");
+    setRedirect(true);
+    console.log(response.data);
+  };
+
+  const crossHandler = () => {
+    setSelectedProd([]);
+    handleFetch("");
+  };
+
+  if (redirect) {
+    return <Navigate to={"/login"} />;
+  }
 
   return (
     <nav className="  flex flex-col ">
@@ -52,7 +68,10 @@ const Navigation = ({ user }) => {
             onChange={(e) => handleFetch(e.target.value)}
           />
           <div className="flex gap-2 items-center justify-end bg-gray-600 p-0 rounded-xl">
-            <IoIosClose className="h-full  cursor-pointer text-2xl" />
+            <IoIosClose
+              className="h-full  cursor-pointer text-2xl"
+              onClick={crossHandler}
+            />
             <IoSearchOutline className=" h-full w-5 rounded-xl cursor-pointer pr-1" />
           </div>
         </div>
@@ -69,8 +88,8 @@ const Navigation = ({ user }) => {
               </Link>
             </div>
             <div>
-              <Link to={"/logout"}>
-                <AiOutlineLogout />
+              <Link>
+                <AiOutlineLogout onClick={logoutHandler} />
               </Link>
             </div>
           </div>
