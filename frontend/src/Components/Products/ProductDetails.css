@@ -1,0 +1,19 @@
+.container{
+    height: 100vh;   
+    background-color: aqua;
+    display: flex;
+}
+
+.image-content{
+    width: 30vw;
+}
+
+.product-detail{
+    width: 50vw;
+    background-color: black;
+}
+
+.payment-container{
+    width: 20%;
+    background-color: bisque;
+}

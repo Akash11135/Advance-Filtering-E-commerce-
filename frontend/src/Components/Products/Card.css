@@ -1,25 +1,25 @@
 .card{
     height: 25rem;
     width: 15rem;
-    background-color: rgb(118 249 248 / 52%);
+    background-image: linear-gradient(#f92f571d , white);
     gap: 1rem;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    border-radius: 10px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .card:hover{
-    cursor: pointer;
-    box-shadow: 5px 5px;
+    background-image: linear-gradient(white,#f92f571d);
+    border-bottom:2px solid #f92f57b1 ;
+    border-top:2px solid #f92f57b1 ;
 }
 
 .image-container{
     height: 90%;
     width: 100%;
-    background-color:whitesmoke;
     padding: 1rem;
 }
 
@@ -31,6 +31,12 @@
 }
 
 .prod-header{
-    border-bottom:2px solid rgba(255, 255, 255, 0.575) ;
+    border-bottom:1px solid #f92f5742;
+    border-top:1px solid #f92f5742;
 }
 
+.detail-container{
+    background-color: #f92f57d2;
+    color: whitesmoke;
+    border-radius: 5px ;
+}

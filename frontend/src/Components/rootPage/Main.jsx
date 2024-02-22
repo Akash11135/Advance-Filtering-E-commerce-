@@ -12,12 +12,21 @@ const Main = ({ selectedProd }) => {
 
   return (
     <main className="main-container">
-      <div className="text-white font-bold text-2x  l pt-3 pl-7">
+      <div className=" font-bold text-2x  l pt-3 pl-7">
         Latest trends and fashion...
       </div>
-      <div className="main-products-container">
-        <Products products={products} selectedProd={selectedProd} />
-      </div>
+      {selectedProd && selectedProd.length > 0 ? (
+        <div className="main-products-container">
+          <Products products={products} selectedProd={selectedProd} />
+        </div>
+      ) : selectedProd.length === 0 ? (
+        <div>
+          <div className="banner"></div>
+          <div className="main-products-container">
+            <Products products={products} selectedProd={selectedProd} />
+          </div>
+        </div>
+      ) : null}
     </main>
   );
 };

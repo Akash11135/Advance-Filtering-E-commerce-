@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
 import "../../App.css";
-import { SiWebmoney } from "react-icons/si";
+import { FaReact } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import { IoSearchOutline } from "react-icons/io5";
 import { BsCart } from "react-icons/bs";
@@ -52,8 +52,8 @@ const Navigation = ({ user, setSelectedProd }) => {
   return (
     <nav className="  flex flex-col ">
       <div className="root-container-search main-nav flex gap-2 p-2  items-center justify-between h-1/2">
-        <div className="logo ">
-          <SiWebmoney className="cursor-pointer" />
+        <div className="logo-container ">
+          <FaReact className="logo cursor-pointer" />
         </div>
         <div className="location inline-flex gap-2 items-center ">
           location
@@ -67,7 +67,7 @@ const Navigation = ({ user, setSelectedProd }) => {
             value={input}
             onChange={(e) => handleFetch(e.target.value)}
           />
-          <div className="flex gap-2 items-center justify-end bg-gray-600 p-0 rounded-xl">
+          <div className=" cross flex gap-2 items-center justify-end  p-1 rounded-xl">
             <IoIosClose
               className="h-full  cursor-pointer text-2xl"
               onClick={crossHandler}
@@ -81,13 +81,13 @@ const Navigation = ({ user, setSelectedProd }) => {
 
         {user && user.data ? (
           <div className="flex gap-2 pr-2 justify-center items-center">
-            <div className="user  border border-gray-500 gap-2 rounded-xl ">
+            <div className="user  gap-2 rounded-xl ">
               <Link to={"/profile"}>{user.data.user.Name}</Link>
               <Link to={"/profile"}>
                 <CiUser className="user-logo cursor-pointer rounded-xl p-1" />
               </Link>
             </div>
-            <div>
+            <div className="logout-container">
               <Link>
                 <AiOutlineLogout onClick={logoutHandler} />
               </Link>
@@ -105,10 +105,10 @@ const Navigation = ({ user, setSelectedProd }) => {
 
       <div className="root-container-categories">
         <ul className="flex gap-2  justify-evenly">
-          <li>Men's Clothing</li>
-          <li>Women's Clothing</li>
-          <li>Jwelery</li>
-          <li>Electronics</li>
+          <li>MEN'S CLOTHING</li>
+          <li>WOMEN'S CLOTHING</li>
+          <li>JWELERY</li>
+          <li>ELECTRONICS</li>
         </ul>
       </div>
     </nav>
