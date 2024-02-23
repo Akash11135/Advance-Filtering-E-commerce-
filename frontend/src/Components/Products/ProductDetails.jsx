@@ -8,7 +8,7 @@ const ProductDetails = () => {
   const [prodData, setProdData] = useState([]);
   useEffect(() => {
     try {
-      axios.get(`http://localhost:3000/products/${id}`).then((response) => {
+      axios.get("http://localhost:3000/products/" + id).then((response) => {
         setProdData(response.data);
       });
       console.log(prodData);
