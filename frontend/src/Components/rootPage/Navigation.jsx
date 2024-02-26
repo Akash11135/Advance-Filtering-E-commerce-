@@ -10,9 +10,10 @@ import { Link, Navigate } from "react-router-dom";
 import { AiOutlineLogout } from "react-icons/ai";
 import axios from "axios";
 
-const Navigation = ({ user, setSelectedProd }) => {
+const Navigation = ({ user, setSelectedProd, selectedProd }) => {
   const [input, setInput] = useState("");
   const [redirect, setRedirect] = useState(false);
+  // const [categories, setCategories] = useState([]);
 
   const fetchData = async (searchItm) => {
     const response = await axios.get("http://localhost:3000/products");

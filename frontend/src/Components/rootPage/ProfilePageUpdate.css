@@ -1,0 +1,57 @@
+.update-Parent{
+    height: 100vh;
+    /* border:2px solid #f92f57; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.update-container{
+    height: 500px;
+    width: 500px;
+    /* background-color: aqua; */
+    border: 2px solid #f92f57;
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.email-details{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-email{
+    background-color: rgba(128, 128, 128, 0.132);
+    padding: 0.5rem;
+    width: 100%;
+    outline: none;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.button{
+    background-color: #f92f57ee;
+    padding: 0.5rem;
+    border-radius: 50px ;
+    margin-top:5rem;
+    width:50%;
+    color: whitesmoke;
+   
+}
+
+.button-div{
+    width: 100%;
+    display: flex;
+        justify-content: center;
+}

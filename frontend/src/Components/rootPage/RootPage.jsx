@@ -12,7 +12,11 @@ const RootPage = () => {
   return (
     <div className="rootPage-container min-h-screen">
       <div className="root-container-nav ">
-        <Navigation user={user} setSelectedProd={setSelectedProd} />
+        <Navigation
+          user={user}
+          setSelectedProd={setSelectedProd}
+          selectedProd={selectedProd}
+        />
       </div>
       <div className="root-container-main  m-3">
         <Main selectedProd={selectedProd} />
