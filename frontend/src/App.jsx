@@ -7,6 +7,7 @@ import { UserContextProvider } from "./Components/extra/UserContext.jsx";
 import axios from "axios";
 import ProductDetails from "./Components/Products/ProductDetails.jsx";
 import ProfilePageUpdate from "./Components/rootPage/ProfilePageUpdate.jsx";
+import CategoryPage from "./Components/rootPage/CategoryPage.jsx";
 function App() {
   axios.defaults.withCredentials = true;
   //to see cookies/token we generated from backend in website and for front end
@@ -17,6 +18,7 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/login" element={<LoginUser />} />
         <Route path="/register" element={<RegisterUser />} />
+        <Route path="/categories" element={<CategoryPage />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/profile/update/email" element={<ProfilePageUpdate />} />
       </Routes>

@@ -7,7 +7,7 @@ router.route('/products/:id')
         try{    
             const Uid = req.params.id
             const user = await Products.findById(Uid)
-            res.status(200).send({"product ":user}) 
+            res.status(200).send({user}) 
         }catch(err){
             res.send("error : "+err)
         }

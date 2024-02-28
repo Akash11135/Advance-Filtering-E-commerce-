@@ -21,7 +21,6 @@ const Main = ({ selectedProd }) => {
         </div>
       ) : selectedProd.length === 0 ? (
         <div>
-          <div className="banner"></div>
           <div className="main-products-container">
             <Products products={products} selectedProd={selectedProd} />
           </div>

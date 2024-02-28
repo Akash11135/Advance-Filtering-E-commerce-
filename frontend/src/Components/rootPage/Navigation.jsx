@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import "../../App.css";
 import { FaReact } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
@@ -9,11 +9,12 @@ import { IoIosClose } from "react-icons/io";
 import { Link, Navigate } from "react-router-dom";
 import { AiOutlineLogout } from "react-icons/ai";
 import axios from "axios";
+import CategoryPage from "./CategoryPage";
 
 const Navigation = ({ user, setSelectedProd, selectedProd }) => {
   const [input, setInput] = useState("");
   const [redirect, setRedirect] = useState(false);
-  // const [categories, setCategories] = useState([]);
+  const [stateManage, setStateManage] = useState(null);
 
   const fetchData = async (searchItm) => {
     const response = await axios.get("http://localhost:3000/products");
@@ -49,7 +50,7 @@ const Navigation = ({ user, setSelectedProd, selectedProd }) => {
   if (redirect) {
     return <Navigate to={"/login"} />;
   }
-
+  console.log("nav---", typeof setSelectedProd);
   return (
     <nav className="  flex flex-col ">
       <div className="root-container-search main-nav flex gap-2 p-2  items-center justify-between h-1/2">
@@ -104,14 +105,16 @@ const Navigation = ({ user, setSelectedProd, selectedProd }) => {
         )}
       </div>
 
-      <div className="root-container-categories">
-        <ul className="flex gap-2  justify-evenly">
-          <li>MEN'S CLOTHING</li>
-          <li>WOMEN'S CLOTHING</li>
-          <li>JWELERY</li>
-          <li>ELECTRONICS</li>
-        </ul>
-      </div>
+      <Link to={"/categories"}>
+        <CategoryPage
+          selectedProd={selectedProd}
+          setStateManage={setStateManage}
+        />
+      </Link>
+
+      {selectedProd && selectedProd.length === 0 ? (
+        <div className="banner"></div>
+      ) : null}
     </nav>
   );
 };
