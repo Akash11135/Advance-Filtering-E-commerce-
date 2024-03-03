@@ -4,7 +4,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 const CategoryPage = ({ selectedProd, setStateManage }) => {
   const [categories, setCategories] = useState([]);
-  console.log("---->", typeof setSelectedProd);
+  // console.log("---->", typeof setSelectedProd);
   const categoryHandle = async (searchItm) => {
     try {
       const response = await axios.get("http://localhost:3000/products");
@@ -19,12 +19,12 @@ const CategoryPage = ({ selectedProd, setStateManage }) => {
       console.log("unable to search the category");
     }
   };
-  useEffect(() => {
-    if (typeof setSelectedProd === "function") {
-      setSelectedProd(categories);
-    }
-  }, [categories]);
-  console.log("selectedProd--->", setSelectedProd);
+  // useEffect(() => {
+  //   if (typeof setSelectedProd === "function") {
+  //     // setSelectedProd(categories);
+  //   }
+  // }, [categories]);
+  // console.log("selectedProd--->", setSelectedProd);
   return (
     <div>
       <div className="root-container-categories">

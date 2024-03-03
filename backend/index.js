@@ -11,6 +11,7 @@ import cookieParser from 'cookie-parser'
 import Products from './modals/products.js'
 import products from './api/Product/product.js'
 import fetchProducts from './api/Product/fetchProduct.js'
+import productCart from './api/Product/productCart.js'
 env.config()
 
 const app = express()
@@ -48,4 +49,5 @@ app.use('/' , profile);
 app.use('/' , logout)
 app.use('/',products)
 app.use('/', fetchProducts)
+app.use('/',productCart);
     
