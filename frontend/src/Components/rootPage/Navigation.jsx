@@ -50,7 +50,7 @@ const Navigation = ({ user, setSelectedProd, selectedProd }) => {
   if (redirect) {
     return <Navigate to={"/login"} />;
   }
-  console.log("nav---", typeof setSelectedProd);
+
   return (
     <nav className="  flex flex-col ">
       <div className="root-container-search main-nav flex gap-2 p-2  items-center justify-between h-1/2">
@@ -78,7 +78,9 @@ const Navigation = ({ user, setSelectedProd, selectedProd }) => {
           </div>
         </div>
         <div className="cart">
-          <BsCart className="cursor-pointer" />
+          <Link to={"/cart"}>
+            <BsCart className="cursor-pointer" />
+          </Link>
         </div>
 
         {user && user.data ? (

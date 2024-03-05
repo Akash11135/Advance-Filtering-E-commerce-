@@ -2,7 +2,6 @@ import React from "react";
 import { TiTick } from "react-icons/ti";
 import { GiCrossMark } from "react-icons/gi";
 const Message = ({ message }) => {
-  console.log("MESSAGE:: ", message);
   return (
     <>
       {message && message === "success" ? (

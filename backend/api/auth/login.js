@@ -28,7 +28,7 @@ router.route('/login')
                     response['statusCode']="200"
                     response['body']="login success"
                     response['user']=user
-                    const token = jwt.sign({email: user.email , Name:user.Name }, process.env.JWT_KEY )
+                    const token = jwt.sign({email: user.email , Name:user.Name , id:user._id}, process.env.JWT_KEY )
                     res.cookie('jwt-login', token, { httpOnly: true, secure: true, sameSite: 'None' });
                     res.status(200).send(response)
                 }else{
