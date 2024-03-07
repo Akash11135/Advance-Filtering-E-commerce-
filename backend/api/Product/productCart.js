@@ -53,7 +53,7 @@ router.route('/cart').get((req,res)=>{
             if (!token) {
                 return res.status(401).send('Not verified user, first login'); // Send response if token is missing
             }
-            let cartProdIds;
+            let cartProdIds = [];
 
             jwt.verify(token, process.env.JWT_KEY, {}, async (err, user) => {
                 if (err) throw err;
@@ -63,8 +63,9 @@ router.route('/cart').get((req,res)=>{
                     // return item._id
                     const product = item.products
                     product.forEach((product)=>{
-                        cartProdIds = (product.productId)
+                        cartProdIds.push(product.productId)
                     })
+                    
                 })
                 if(cartProducts){
                     const productsCart = await Products.find({ _id: {$in : cartProdIds} });

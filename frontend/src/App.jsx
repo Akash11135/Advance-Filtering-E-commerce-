@@ -21,7 +21,7 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/login" element={<LoginUser />} />
           <Route path="/register" element={<RegisterUser />} />
-          <Route path="/categories" element={<CategoryPage />} />
+          <Route path="/categories/:categoryType" element={<CategoryPage />} />
           <Route path="/products/:id" element={<ProductDetails />} />
           <Route path="/profile/update/email" element={<ProfilePageUpdate />} />
           <Route path="/cart" element={<CartPage />} />

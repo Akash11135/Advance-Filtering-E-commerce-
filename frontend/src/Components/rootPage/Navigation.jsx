@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../../App.css";
 import { FaReact } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
@@ -6,7 +6,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { BsCart } from "react-icons/bs";
 import { CiUser } from "react-icons/ci";
 import { IoIosClose } from "react-icons/io";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AiOutlineLogout } from "react-icons/ai";
 import axios from "axios";
 import CategoryPage from "./CategoryPage";
@@ -51,6 +51,14 @@ const Navigation = ({ user, setSelectedProd, selectedProd }) => {
     return <Navigate to={"/login"} />;
   }
 
+  const navigate = useNavigate();
+  const categoryHandle = (item) => {
+    navigate(`/categories/${item}`);
+  };
+
+  if (stateManage) {
+    console.log(stateManage);
+  }
   return (
     <nav className="  flex flex-col ">
       <div className="root-container-search main-nav flex gap-2 p-2  items-center justify-between h-1/2">
@@ -107,13 +115,22 @@ const Navigation = ({ user, setSelectedProd, selectedProd }) => {
         )}
       </div>
 
-      <Link to={"/categories"}>
-        <CategoryPage
-          selectedProd={selectedProd}
-          setStateManage={setStateManage}
-        />
-      </Link>
-
+      <CategoryPage
+        selectedProd={selectedProd}
+        setStateManage={setStateManage}
+      />
+      <div className="root-container-categories">
+        <ul className="flex gap-2  justify-evenly">
+          <li onClick={(e) => categoryHandle("men's clothing")}>
+            MEN'S CLOTHING
+          </li>
+          <li onClick={(e) => categoryHandle("women's clothing")}>
+            WOMEN'S CLOTHING
+          </li>
+          <li onClick={(e) => categoryHandle("jewelery")}>JWELERY</li>
+          <li onClick={(e) => categoryHandle("electronics")}>ELECTRONICS</li>
+        </ul>
+      </div>
       {selectedProd && selectedProd.length === 0 ? (
         <div className="banner"></div>
       ) : null}

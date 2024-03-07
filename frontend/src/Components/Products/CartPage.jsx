@@ -11,7 +11,7 @@ const CartPage = () => {
   if (cartData) {
     console.log("data", cartData);
   }
-  return <div>hi</div>;
+  return <div>Cart Page</div>;
 };
 
 export default CartPage;
