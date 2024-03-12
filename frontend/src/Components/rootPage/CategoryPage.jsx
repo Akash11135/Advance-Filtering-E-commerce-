@@ -16,7 +16,7 @@ const CategoryPage = ({ selectedProd, setStateManage }) => {
     if (respData && respData.data) {
       setCategories(
         respData.data.filter((item) => {
-          item.category.includes(categoryType);
+          item.category === categoryType;
         })
       );
     }

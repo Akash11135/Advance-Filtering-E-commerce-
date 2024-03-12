@@ -115,10 +115,6 @@ const Navigation = ({ user, setSelectedProd, selectedProd }) => {
         )}
       </div>
 
-      <CategoryPage
-        selectedProd={selectedProd}
-        setStateManage={setStateManage}
-      />
       <div className="root-container-categories">
         <ul className="flex gap-2  justify-evenly">
           <li onClick={(e) => categoryHandle("men's clothing")}>

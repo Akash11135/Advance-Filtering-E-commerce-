@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CartPageElements from "./CartPageElements";
+import "./CartPageElements.css";
+
 const CartPage = () => {
   const [cartData, setCartData] = useState(null);
 
@@ -8,10 +11,14 @@ const CartPage = () => {
       setCartData(response.data);
     });
   }, []);
-  if (cartData) {
-    console.log("data", cartData);
+
+  if (cartData && cartData.productsCart && cartData.productsCart.length > 0) {
+    return cartData.productsCart.map((item, index) => {
+      return <CartPageElements item={item} key={index} />;
+    });
+  } else {
+    return <div>No items found.</div>;
   }
-  return <div>Cart Page</div>;
 };
 
 export default CartPage;
